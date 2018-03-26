@@ -8,9 +8,7 @@ public interface Queue<T> {
 	public T front();
 	
 	public int size();
-	public boolean isEmpty();
 	
-	for(int x : array) {
-		
-	}
+	public boolean isEmpty();
+
 }
