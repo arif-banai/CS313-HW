@@ -47,30 +47,31 @@ public class ListNode<T> implements Comparable<T> {
 			if(this.data.equals(o)) {
 				return true;
 			}
-			return false;
 		}
 		
 		return false;
 	}
 
-	@Override
+	
 	//Returns -2 if the objects can't be compared
-	//TODO
+	@Override
 	public int compareTo(Object o) {
-		if(o instanceof Integer) {
+		if(o instanceof Integer && data instanceof Integer) {
 			Integer target = (Integer) o;
-			return -1 * target.compareTo((Integer)data);
+			
+			return -1 * target.compareTo((Integer) data);
 		} 
 		
-		if(o instanceof String) {
+		if(o instanceof String && data instanceof String) {
 			String target = (String) o;
 			return -1 * target.compareTo((String) data);
 		}
 		
-		if(o instanceof Character) {
+		if(o instanceof Character && data instanceof Character) {
 			Character target = (Character) o;
 			return -1 * target.compareTo((Character) data);
 		}
+		//TODO continue comparisons
 		
 		return -2;
 	}

@@ -1,4 +1,4 @@
-package me.arifBanai.hwZero;
+package me.arifbanai.utilities;
 
 import java.util.Random;
 

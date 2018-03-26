@@ -1,4 +1,5 @@
 package me.arifbanai.linkedList;
+
 import java.util.Iterator;
 
 public class LinkedList<T> implements Iterable<T> {
@@ -28,6 +29,12 @@ public class LinkedList<T> implements Iterable<T> {
 
 	//Add the node to the front of the list
 	public void prepend(ListNode<T> node) {
+		if(length == 0) {
+			append(node);
+			return;
+		}
+		
+		first.next.prev = node;
 		node.next = first.next;
 		first.next = node;
 		++length;
@@ -118,6 +125,7 @@ public class LinkedList<T> implements Iterable<T> {
 		}
 		
 		first.next = first.next.next;
+		first.next.prev = null;
 		--length;
 	}
 
@@ -145,8 +153,28 @@ public class LinkedList<T> implements Iterable<T> {
 
 	
 	public Iterator<T> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new LinkedListIterator<T>(this);
+	}
+	
+	private class LinkedListIterator<T> implements Iterator<T> {
+		
+		private ListNode<T> current;
+		
+		public LinkedListIterator(LinkedList<T> list) {
+			//<current> should be the dummy node
+			current = list.getFirst();
+		}
+		
+		@Override
+		public boolean hasNext() {
+			return (current.next != null);
+		}
+
+		@Override
+		public T next() {
+			current = current.next;
+			return current.data;
+		}
 	}
 
 	
@@ -156,10 +184,7 @@ public class LinkedList<T> implements Iterable<T> {
 
 	
 	public boolean isEmpty() {
-		if(length == 0) 
-			return true;
-		
-		return false;
+		return length == 0;
 	}
 
 }
