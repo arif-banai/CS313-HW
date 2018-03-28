@@ -1,5 +1,5 @@
-import me.arifbanai.linkedList.LinkedList;
-import me.arifbanai.linkedList.ListNode;
+import me.arifbanai.dataStructure.linkedList.LinkedList;
+import me.arifbanai.dataStructure.linkedList.ListNode;
 
 public class Main {
 

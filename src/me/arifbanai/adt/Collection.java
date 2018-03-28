@@ -1,6 +1,6 @@
 package me.arifbanai.adt;
 
-//Collection class provided by Adolfus Lapsys
+//Collection interface provided by Adolfus Lapsys
 public interface Collection<T> {
   public void insert(int index, T elem);
   public void prepend(T elem);

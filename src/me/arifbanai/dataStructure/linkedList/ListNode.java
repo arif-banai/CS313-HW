@@ -1,4 +1,4 @@
-package me.arifbanai.linkedList;
+package me.arifbanai.dataStructure.linkedList;
 public class ListNode<T> implements Comparable<T> {
 	
 	protected T data;

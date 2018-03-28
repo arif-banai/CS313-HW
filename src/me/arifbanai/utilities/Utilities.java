@@ -73,6 +73,7 @@ public class Utilities {
 		return System.currentTimeMillis() - timer;
 	}
 	
+	//test utilities
 	public static void main(String[] args) {
 		int[][] randomArray2D = generateRandom2D(10, -10, 10, 3, 10);
 		

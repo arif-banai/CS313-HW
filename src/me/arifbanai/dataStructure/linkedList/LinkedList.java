@@ -1,4 +1,4 @@
-package me.arifbanai.linkedList;
+package me.arifbanai.dataStructure.linkedList;
 
 import java.util.Iterator;
 

@@ -1,8 +1,9 @@
+package me.arifbanai.tests;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import me.arifbanai.stack.LinkedStack;
+import me.arifbanai.dataStructure.LinkedStack;
 
 public class DjikstraTwoStack {
 	

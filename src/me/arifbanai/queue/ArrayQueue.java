@@ -1,7 +1,7 @@
 package me.arifbanai.queue;
 
 import me.arifbanai.adt.Queue;
-import me.arifbanai.array.Array;
+import me.arifbanai.dataStructure.Array;
 
 public class ArrayQueue<T> extends Array<T> implements Queue<T>, Iterable<T> {
 

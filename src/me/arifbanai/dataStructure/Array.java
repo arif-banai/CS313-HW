@@ -1,9 +1,9 @@
-package me.arifbanai.array;
+package me.arifbanai.dataStructure;
 
 import java.util.Iterator;
 
 //Self-resizing array class provided by Adolfus Lapsys
-public class Array<T> implements  Iterable<T> {
+public class Array<T> implements Iterable<T> {
 	private T[] data;
 	private int size;
 
@@ -85,6 +85,7 @@ public class Array<T> implements  Iterable<T> {
 		return new ArrayIterator<T>(this);
 	}
 
+	@SuppressWarnings("hiding")
 	private class ArrayIterator<T> implements Iterator<T> {
 		private int index;
 		private Array<T> array;
