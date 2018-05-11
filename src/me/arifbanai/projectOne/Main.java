@@ -14,13 +14,14 @@ public class Main {
 		HeapPriorityQueue<Task> heapPQ = new HeapPriorityQueue<>();
 		LinkedListPriorityQueue<Task> listPQ = new LinkedListPriorityQueue<>();
 		
-		int n = 1000000;
+		int n = 100000;
 		
 		double avgTime = 0;
-		long[] times = new long[10];
+		double[] times = new double[100];
 		
 		for(int i = 0; i < 10; i++) {
-			times[i] = benchmarkEnqueue(arrayPQ, n);
+			times[i] = benchmarkEnqueueDequeue(listPQ, n);
+			System.out.println("Time for test "  + i + ":\t" + times[i]);
 			avgTime += times[i];
 		}
 		
@@ -59,6 +60,11 @@ public class Main {
 	
 	public static long benchmarkEnqueueDequeue(PriorityQueue<Task> pq, int n) {
 		Task[] testData = generateRandomTasks(n);
+		
+		for(int i = 0; i < 1500; i++) {
+			pq.enqueue(testData[i]);
+		}
+		
 		
 		startTimer();
 		
