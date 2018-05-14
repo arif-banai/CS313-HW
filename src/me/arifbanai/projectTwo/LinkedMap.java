@@ -1,47 +1,78 @@
 package me.arifbanai.projectTwo;
 
-import me.arifbanai.dataStructure.linkedList.ListNode;
 import me.arifbanai.projectTwo.resources.Map;
 import me.arifbanai.projectTwo.resources.MapNode;
 
-public class LinkedMap<K extends Comparable<K>, V> implements Map<K, V> {
+public class LinkedMap<K, V> implements Map<K, V> {
 
 	protected MapNode<K, V> head;
 	protected int size;
 	
 	public LinkedMap() {
-		this.head = new MapNode();
+		this.head = new MapNode<>();
 		size = 0;
 	}
 	
-	
 	@Override
 	public void put(K key, V value) {
-		// TODO Auto-generated method stub
+		MapNode<K, V> temp = new MapNode<>(key, value);
 		
+		if(head.getNext() != null) {
+			temp.setNext(head.getNext());
+		} 
+		
+		head.setNext(temp);
+		size++;
+		return;
 	}
 
 	@Override
 	public V get(K key) {
-		// TODO Auto-generated method stub
+		for(MapNode<K,V> temp = head.getNext(); temp != null; temp = temp.getNext()) {
+			if(temp.getKey() == key) {
+				return temp.getValue();
+			}
+		}
+		
 		return null;
 	}
 
 	@Override
 	public void remove(K key) {
-		// TODO Auto-generated method stub
+		MapNode<K,V> previous = null;
+		MapNode<K,V> target = null;
 		
+		for(MapNode<K,V> temp = head.getNext(); temp != null; temp = temp.getNext()) {
+			if(temp.getKey() == key) {
+				target = temp;
+				break;
+			}
+			
+			previous = temp;
+		}
+		
+		//If target is null, then we cannot find the node to delete
+		//Therefore, exit the method and do not remove anything
+		if(target == null) {
+			return;
+		}
+		
+		//<previous> should never be null unless the list is empty
+		//Therefore, this check should be redundant
+		if(previous != null) {
+			previous.setNext(target.getNext());
+		}
+		
+		size--;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return length;
+		return size;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return size == 0;
 	}
 }

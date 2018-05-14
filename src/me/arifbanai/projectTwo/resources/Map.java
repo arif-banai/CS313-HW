@@ -1,6 +1,6 @@
 package me.arifbanai.projectTwo.resources;
 
-public interface Map<K extends Comparable<K>, V> {
+public interface Map<K, V> {
 	// Insert a value into the map associated with the key.
 	void put(K key, V value);
 

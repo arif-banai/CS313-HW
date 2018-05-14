@@ -1,7 +1,5 @@
 package me.arifbanai.projectTwo.resources;
 
-import me.arifbanai.dataStructure.linkedList.ListNode;
-
 //Singly linked node for LinkedMap
 public class MapNode<K, V> {
 	
@@ -41,15 +39,8 @@ public class MapNode<K, V> {
 		return next;
 	}
 	
-	@Override
-	public boolean equals(Object o) {
-		if(o instanceof MapNode<K, V>) { 
-			if(this.data.equals(o)) {
-				return true;
-			}
-		}
-		
-		return false;
+	public void setNext(MapNode<K,V> temp) {
+		this.next = temp;
 	}
 	
 
