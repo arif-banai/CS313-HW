@@ -84,12 +84,12 @@ public class BSTMap<K extends Comparable<K>,V> implements Map<K, V> {
 
 	@Override
 	public int size() {
-		if(root != null) {
+		if(root == null) {
 			//Updates the <size> field while returning the size
-			return size = root.sizeOfLeftSubTree + root.sizeOfRightSubTree + 1;
+			return size = 0;
 		}
 		
-		return size = 0;
+		return root.sizeOfLeftSubTree + 1 + root.sizeOfRightSubTree;
 	}
 
 	@Override

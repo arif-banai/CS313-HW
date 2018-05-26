@@ -6,7 +6,7 @@ import me.arifbanai.projectTwo.resources.MapNode;
 public class HashMap<K, V> implements Map<K, V> {
 	
 	public LinkedMap<K, V>[] array;
-	private int initialCapacity = 10;
+	private int initialCapacity = 100000;
 	
 	
 	private int numNodes;

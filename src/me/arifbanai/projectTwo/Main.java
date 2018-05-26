@@ -10,8 +10,8 @@ public class Main {
 	public static long timer;
 
 	public static void main(String[] args) {
-		int numNodes[] = {10, 20, 40, 80, 160,
-						  320, 640, 1280, 2560, 5120};
+		int numNodes[] = {100, 200, 400, 800, 1600,
+						  3200, 6400, 12800, 25600, 51200};
 		int numTrials = 10;
 		int rowsOfData = 10;
 		
@@ -39,11 +39,17 @@ public class Main {
 		for(int test = 0; test < rowsOfData; test++) {
 			for(int i = 0; i < numTrials; i++) {
 				timeForLinkedMapInsertion[i] =	testLinkedMapInsertion(numNodes[test]);
+				
 				timeForLinkedMapRemoval[i] = 	testLinkedMapRemoval(numNodes[test]);
+				
 				timeForHashMapInsertion[i] = 	testHashMapInsertion(numNodes[test]);
+				
 				timeForHashMapRemoval[i] = 		testHashMapRemoval(numNodes[test]);
+				
 				timeForBSTMapInsertion[i] = 	testBSTMapInsertion(numNodes[test]);
+				
 				timeForBSTMapRemoval[i] = 		testBSTMapRemoval(numNodes[test]);
+				
 			}
 			
 			for(int i = 0; i < numTrials; i++) {
@@ -75,16 +81,24 @@ public class Main {
 			avgHashMapRemoval = 0;
 			avgBSTMapInsertion = 0;
 			avgBSTMapRemoval = 0;
+			
+			System.out.println(test);
 		}
 		
 		
 		try {
 			writeToCSV(numNodes, avgsLinkedMapInsert, "linkedMapInsertion");
+			System.out.println("1");
 			writeToCSV(numNodes, avgsLinkedMapRemove, "linkedMapRemoval");
+			System.out.println("2");
 			writeToCSV(numNodes, avgsHashMapInsert, "hashMapInsertion");
+			System.out.println("3");
 			writeToCSV(numNodes, avgsHashMapRemove, "hashMapRemoval");
+			System.out.println("4");
 			writeToCSV(numNodes, avgsBSTMapInsert, "BSTMapInsertion");
+			System.out.println("5");
 			writeToCSV(numNodes, avgsBSTMapRemove, "BSTMapRemoval");
+			System.out.println("6");
 		} catch (IOException e) {
 			System.err.println("Could not find file!");
 			e.printStackTrace();
