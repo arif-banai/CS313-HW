@@ -3,33 +3,8 @@ package me.arifbanai.projectOne;
 import java.util.Arrays;
 
 import me.arifbanai.projectOne.resources.PriorityQueue;
-import me.arifbanai.projectOne.resources.Task;
-import me.arifbanai.utilities.Utilities;
 
 public class ArrayPriorityQueue<T extends Comparable<T>> implements PriorityQueue<T> {
-	
-	public static void main(String[] args) {
-		ArrayPriorityQueue<Task> arrayPQ = new ArrayPriorityQueue<>();
-		
-		int n = 23;
-		
-		Task[] testData = new Task[n];
-		
-		int[] randomID = Utilities.generateRandom(n);
-		int[] randomPriority = Utilities.generateRandom(n);
-		
-		for(int i = 0; i < n; i++) {
-			testData[i] = new Task();
-			testData[i].id = randomID[i];
-			testData[i].priority = randomPriority[i];
-			
-			arrayPQ.insert(testData[i]);
-		}
-		
-		System.out.println("ArrayPQ");
-		arrayPQ.printArray();
-	}
-	
 
 	private T[] array;
 	private int size;
@@ -44,7 +19,7 @@ public class ArrayPriorityQueue<T extends Comparable<T>> implements PriorityQueu
 		sorted = true;
 	}
 
-	public void insert(T item) {
+	private void insert(T item) {
 		if (size == array.length) {
 			grow();
 		}
@@ -54,7 +29,7 @@ public class ArrayPriorityQueue<T extends Comparable<T>> implements PriorityQueu
 		sorted = false;
 	}
 	
-	public T getMaxPriority() {
+	private T getMaxPriority() {
 		if(size == 0) {
 			return null;
 		}
@@ -67,7 +42,7 @@ public class ArrayPriorityQueue<T extends Comparable<T>> implements PriorityQueu
 		return array[size];
 	}
 
-	public T removeMaxPriority() {
+	private T removeMaxPriority() {
 		if(size == 0) {
 			return null;
 		}
@@ -103,8 +78,7 @@ public class ArrayPriorityQueue<T extends Comparable<T>> implements PriorityQueu
 	
 	@Override
 	public void enqueue(T item) {
-		// TODO Auto-generated method stub
-		
+		insert(item);
 	}
 
 	@Override

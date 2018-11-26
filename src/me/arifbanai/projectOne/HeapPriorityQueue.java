@@ -5,7 +5,6 @@ import me.arifbanai.projectOne.resources.PriorityQueue;
 //Max-BinaryHeap
 public class HeapPriorityQueue<T extends Comparable<T>> implements PriorityQueue<T> {
 
-	//I am running into a NullPointerException is
 	private static final int DEFAULT_CAPACITY = 10;
 	
 	private T[] array;
@@ -17,19 +16,19 @@ public class HeapPriorityQueue<T extends Comparable<T>> implements PriorityQueue
 		size = 0;
 	}
 	
-	public int getLeftChildIdx(int current) {
+	private int getLeftChildIdx(int current) {
 		return current * 2;
 	}
 
-	public int getRightChildIdx(int current) {
+	private int getRightChildIdx(int current) {
 		return (current * 2) + 1;
 	}
 
-	public int getParentIdx(int current) {
+	private int getParentIdx(int current) {
 		return current/2;
 	}
 
-	public void insert(T item) {
+	private void insert(T item) {
 		if(size == array.length - 1)
 			grow();
 
@@ -38,7 +37,7 @@ public class HeapPriorityQueue<T extends Comparable<T>> implements PriorityQueue
 		bubbleUp(size);
 	}
 	
-	public T getRoot() {
+	private T getRoot() {
 		if(size == 0) {
 			return null;
 		}
@@ -46,7 +45,7 @@ public class HeapPriorityQueue<T extends Comparable<T>> implements PriorityQueue
 		return array[1];
 	}
 	
-	public T removeRoot() {
+	private T removeRoot() {
 		if(size == 0) {
 			return null;
 		}
@@ -60,13 +59,13 @@ public class HeapPriorityQueue<T extends Comparable<T>> implements PriorityQueue
 		return target;
 	}
 
-	public void swap(int indexOne, int indexTwo) {
+	private void swap(int indexOne, int indexTwo) {
 		T temp = array[indexOne];
 		array[indexOne] = array[indexTwo];
 		array[indexTwo] = temp;
 	}
 
-	public void bubbleUp(int idx) {
+	private void bubbleUp(int idx) {
 		int parentIdx = getParentIdx(idx);
 		if(parentIdx < 1)
 			return;
@@ -77,7 +76,7 @@ public class HeapPriorityQueue<T extends Comparable<T>> implements PriorityQueue
 		}
 	}
 
-	public void bubbleDown(int idx) {
+	private void bubbleDown(int idx) {
 		if(size <= 1 || idx > size) {
 			return;
 		}

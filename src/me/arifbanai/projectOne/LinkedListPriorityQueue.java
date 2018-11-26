@@ -16,7 +16,7 @@ public class LinkedListPriorityQueue<T extends Comparable<T>> implements Priorit
 	}
 
 	//Insert a node in SORTED order
-	public void insert(ListNode<T> node) {
+	private void insert(ListNode<T> node) {
 		if(length == 0) {
 			root.next = node;
 			length++;
@@ -67,11 +67,11 @@ public class LinkedListPriorityQueue<T extends Comparable<T>> implements Priorit
 	
 
 	//Since <root> is a dummy, return the next node
-	public ListNode<T> getRoot() {
+	private ListNode<T> getRoot() {
 		return root.next;
 	}
 	
-	public ListNode<T> removeRoot() {
+	private ListNode<T> removeRoot() {
 		if(length == 0) {
 			throw new IllegalArgumentException("There is no root to remove!");
 		}
